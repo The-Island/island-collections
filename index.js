@@ -178,9 +178,9 @@ exports.profiles = {
 };
 
 /*
- * Determine if user can access resource.
+ * Determine if member can access resource.
  */
-var hasAccess = exports.hasAccess = function (db, user, resource, cb) {
+var hasAccess = exports.hasAccess = function (db, member, resource, cb) {
   Step(
     function () {
       var next = this;
@@ -206,9 +206,9 @@ var hasAccess = exports.hasAccess = function (db, user, resource, cb) {
       db.Users.read({_id: _author_id}, this.parallel());
 
       // Look for a subscription.
-      if (user) {
-        db.Subscriptions.read({subscriber_id: db.oid.isValid(user._id) ?
-            user._id: db.oid(user._id), subscribee_id: _author_id,
+      if (member) {
+        db.Subscriptions.read({subscriber_id: db.oid.isValid(member._id) ?
+            member._id: db.oid(member._id), subscribee_id: _author_id,
             mute: false, 'meta.style': 'follow'}, this.parallel());
       }
     },
@@ -220,14 +220,14 @@ var hasAccess = exports.hasAccess = function (db, user, resource, cb) {
 
       // Check resource privacy.
       if (resource.public === false) {
-        if (!user || user._id.toString() !== author._id.toString()) {
+        if (!member || member._id.toString() !== author._id.toString()) {
           return cb(null, false);
         }
       }
 
-      // Check user privacy.
+      // Check member privacy.
       if (!sub && author.config.privacy.mode.toString() === '1') {
-        if (!user || user._id.toString() !== author._id.toString()) {
+        if (!member || member._id.toString() !== author._id.toString()) {
           return cb(null, false);
         }
       }
