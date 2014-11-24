@@ -5,7 +5,7 @@
 
 // Module Dependencies
 var util = require('util');
-var sutil = require('island-util');
+var iutil = require('island-util');
 var Step = require('step');
 var _ = require('underscore');
 _.mixin(require('underscore.string'));
@@ -96,7 +96,7 @@ exports.profiles = {
       return Number(d.config.privacy.mode);
     },
     gravatar: function (d) {
-      return com.hash(d.primaryEmail || 'foo@bar.baz');
+      return iutil.hash(d.primaryEmail || 'foo@bar.baz');
     },
     facebookId: 1,
     twitterId: 1,
