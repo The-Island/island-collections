@@ -203,7 +203,7 @@ var hasAccess = exports.hasAccess = function (db, member, resource, cb) {
       var author_id = resource.author ? resource.author._id:
           resource.author_id;
       var _author_id = db.oid.isValid(author_id) ? author_id: db.oid(author_id);
-      db.Users.read({_id: _author_id}, this.parallel());
+      db.Members.read({_id: _author_id}, this.parallel());
 
       // Look for a subscription.
       if (member) {
