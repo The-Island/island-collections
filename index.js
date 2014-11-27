@@ -200,15 +200,17 @@ var hasAccess = exports.hasAccess = function (db, member, resource, cb) {
       if (err) return cb(err);
 
       // Get the resource author.
-      var author_id = resource.author ? resource.author._id:
-          resource.author_id;
-      var _author_id = db.oid.isValid(author_id) ? author_id: db.oid(author_id);
-      db.Members.read({_id: _author_id}, this.parallel());
+      var author_id = resource.author ? (resource.author._id
+          || resource.author.id): resource.author_id;
+      if (_.isString(author_id) && db.oid.isValid(author_id)) {
+        author_id = db.oid(author_id);
+      }
+      db.Members.read({_id: author_id}, this.parallel());
 
       // Look for a subscription.
       if (member) {
         db.Subscriptions.read({subscriber_id: db.oid.isValid(member._id) ?
-            member._id: db.oid(member._id), subscribee_id: _author_id,
+            member._id: db.oid(member._id), subscribee_id: author_id,
             mute: false, 'meta.style': 'follow'}, this.parallel());
       }
     },
