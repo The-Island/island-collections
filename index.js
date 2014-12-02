@@ -83,7 +83,6 @@ exports.collections = {
     uniques: [false, false]
   },
   signup: {
-    resource: true,
     indexes: [{email: 1}],
     uniques: [true]
   },
