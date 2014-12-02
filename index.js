@@ -82,6 +82,11 @@ exports.collections = {
     indexes: [{subscriber_id: 1}, {read: 1}],
     uniques: [false, false]
   },
+  signup: {
+    resource: true,
+    indexes: [{email: 1}],
+    uniques: [true]
+  },
   key: {}
 };
 
