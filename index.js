@@ -82,7 +82,16 @@ exports.collections = {
     indexes: [{subscriber_id: 1}, {read: 1}],
     uniques: [false, false]
   },
-  key: {}
+  signup: {
+    indexes: [{email: 1}, {code: 1}],
+    uniques: [true, true],
+    sparses: [false, true]
+  },
+  key: {
+    indexes: [{token: 1}],
+    uniques: [true],
+    sparses: [true]
+  }
 };
 
 // Resource profiles for client objects.
@@ -101,6 +110,7 @@ exports.profiles = {
     facebookId: 1,
     twitterId: 1,
     vcnt: 1,
+    invited: 1
   },
   post: {
     collection: 'post',
