@@ -91,10 +91,6 @@ exports.collections = {
     indexes: [{token: 1}],
     uniques: [true],
     sparses: [true]
-  },
-  blog: {
-    indexes: [{key: 1}, {category: 1}, {author_id: 1}],
-    uniques: [true, false, false]
   }
 };
 
@@ -188,19 +184,7 @@ exports.profiles = {
   event: {
     collection: 'event',
     data: 1,
-  },
-  post: {
-    collection: 'blog',
-    draft: 1,
-    key: 1,
-    tags: 1,
-    title: 1,
-    date: 1,
-    category: 1,
-    vcnt: 1,
-    description: 1,
-    content: 1
-  },
+  }
 };
 
 /*
