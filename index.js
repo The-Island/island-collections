@@ -134,6 +134,7 @@ exports.profiles = {
     env: 1,
     name: 1,
     date: 1,
+    weather: 1,
     vcnt: 1,
   },
   action: {
