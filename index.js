@@ -91,6 +91,10 @@ exports.collections = {
     indexes: [{token: 1}],
     uniques: [true],
     sparses: [true]
+  },
+  blog: {
+    indexes: [{key: 1}, {author_id: 1}],
+    uniques: [true, false]
   }
 };
 
@@ -131,6 +135,7 @@ exports.profiles = {
   },
   session: {
     collection: 'session',
+    key: 1,
     env: 1,
     name: 1,
     date: 1,
@@ -147,6 +152,7 @@ exports.profiles = {
   },
   tick: {
     collection: 'tick',
+    key: 1,
     public: 1,
     type: 1,
     sent: 1,
