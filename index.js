@@ -91,10 +91,6 @@ exports.collections = {
     indexes: [{token: 1}],
     uniques: [true],
     sparses: [true]
-  },
-  blog: {
-    indexes: [{key: 1}, {author_id: 1}],
-    uniques: [true, false]
   }
 };
 
