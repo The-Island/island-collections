@@ -135,7 +135,30 @@ exports.profiles = {
     env: 1,
     name: 1,
     date: 1,
-    weather: 1,
+    weather: function (d, p) {
+      var w = d.weather;
+      if (!w) {
+        return;
+      }
+      if (p.time === undefined) {
+        return {daily: w.daily.data[0]};
+      }
+      var hr = p.time / 60;
+      if (hr * 10 % 10 === 0) {
+        return {hourly: w.hourly.data[hr]};
+      }
+      var l = w.hourly.data[hr - 0.5];
+      var h = w.hourly.data[hr + 0.5];
+      var a = {};
+      _.each(l, function (v, k) {
+        if (_.isNumber(v)) {
+          a[k] = (v + h[k]) / 2;
+        } else {
+          a[k] = v;
+        }
+      });
+      return {hourly: a};
+    },
     vcnt: 1,
   },
   action: {
