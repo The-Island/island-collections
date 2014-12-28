@@ -140,9 +140,10 @@ exports.profiles = {
       if (!w) {
         return;
       }
-      if (p.time === undefined) {
+      if (p.time === undefined && w.daily) {
         return {daily: w.daily.data[0]};
       }
+      if (!w.hourly) return;
       var hr = p.time / 60;
       if (hr * 10 % 10 === 0) {
         return {hourly: w.hourly.data[hr]};
