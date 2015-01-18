@@ -110,7 +110,8 @@ exports.profiles = {
     facebookId: 1,
     twitterId: 1,
     vcnt: 1,
-    invited: 1
+    invited: 1,
+    welcomed: 1,
   },
   post: {
     collection: 'post',
