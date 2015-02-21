@@ -105,7 +105,10 @@ exports.profiles = {
       return Number(d.config.privacy.mode);
     },
     avatar: function (d) {
-      return d.avatar ? d.avatar.ssl_url;
+      return d.avatar ? d.avatar.ssl_url: undefined;
+    },
+    avatar_big: function (d) {
+      return d.avatar_big ? d.avatar_big.ssl_url: undefined;
     },
     gravatar: function (d) {
       return iutil.hash(d.primaryEmail || 'foo@bar.baz');
