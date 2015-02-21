@@ -104,6 +104,9 @@ exports.profiles = {
     privacy: function (d) {
       return Number(d.config.privacy.mode);
     },
+    avatar: function (d) {
+      return d.avatar ? d.avatar.ssl_url;
+    },
     gravatar: function (d) {
       return iutil.hash(d.primaryEmail || 'foo@bar.baz');
     },
