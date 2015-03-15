@@ -118,6 +118,7 @@ exports.profiles = {
     vcnt: 1,
     invited: 1,
     welcomed: 1,
+    cragmin: 1,
   },
   post: {
     collection: 'post',
