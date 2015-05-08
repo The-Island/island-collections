@@ -113,8 +113,10 @@ exports.profiles = {
     gravatar: function (d) {
       return iutil.hash(d.primaryEmail || 'foo@bar.baz');
     },
+    googleId: 1,
     facebookId: 1,
     twitterId: 1,
+    instagramId: 1,
     vcnt: 1,
     invited: 1,
     welcomed: 1,
