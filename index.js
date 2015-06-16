@@ -121,6 +121,7 @@ exports.profiles = {
     invited: 1,
     welcomed: 1,
     cragmin: 1,
+    prefs: 1,
   },
   post: {
     collection: 'post',
