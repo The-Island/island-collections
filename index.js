@@ -146,7 +146,7 @@ exports.profiles = {
     env: 1,
     name: 1,
     date: 1,
-    weather: function (d, p) {
+    weather: function (d, p) { // document, parent
       var w = d.weather;
       if (!w) {
         return;
@@ -163,7 +163,7 @@ exports.profiles = {
       var h = w.hourly.data[hr + 0.5];
       var a = {};
       _.each(l, function (v, k) {
-        if (_.isNumber(v)) {
+        if (_.isNumber(v) && h) {
           a[k] = (v + h[k]) / 2;
         } else {
           a[k] = v;
