@@ -8,8 +8,7 @@ var util = require('util');
 var iutil = require('island-util');
 var Step = require('step');
 var _ = require('underscore');
-_.mixin(require('underscore.string'));
-
+var _s = require('underscore.string');
 
 /*
 collectionName: {
@@ -240,7 +239,7 @@ var hasAccess = exports.hasAccess = function (db, member, resource, cb) {
         if (!doc.parent_id || !doc.parent_type) {
           return next(null, doc);
         }
-        db[_.capitalize(doc.parent_type) + 's']
+        db[_s.capitalize(doc.parent_type) + 's']
             .read({_id: db.oid.isValid(doc.parent_id) ? doc.parent_id:
             db.oid(doc.parent_id)}, _parent);
       })(null, resource);
