@@ -8,7 +8,7 @@
     "url": "git://github.com/The-Island/island-collections.git"
   },
   "dependencies": {
-    "island-util": "git+https://island-ebs:i51andghebs@github.com/The-Island/island-util.git#0.0.2",
+    "island-util": "git+https://github.com/The-Island/island-util.git#0.0.2",
     "step": "1.0.0",
     "underscore": "~1.8.3",
     "underscore.string": "~3.3.4"
