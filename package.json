@@ -1,14 +1,13 @@
 {
-  "private": true,
   "author": "The Island (git://github.com/The-Island)",
-  "name": "island-collections",
+  "name": "@islandio/collections",
   "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/The-Island/island-collections.git"
   },
   "dependencies": {
-    "island-util": "git+https://github.com/The-Island/island-util.git#0.0.2",
+    "@islandio/util": "^0.0.4",
     "step": "1.0.0",
     "underscore": "~1.8.3",
     "underscore.string": "~3.3.4"
